@@ -23,7 +23,7 @@ jobs:
         java-version: '21'
         cache: 'maven'
     - name: Resolve Project Maven Dependencies
-      run: test -f pom.xml && mvn dependency:go-offline dependency:resolve-plugins || true
+      run: test -f pom.xml && mvn -B -ntp dependency:go-offline dependency:resolve-plugins || true
 
     - name: "Rubric: Check coding standard"
       id: checkstyle
