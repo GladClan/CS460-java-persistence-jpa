@@ -37,7 +37,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Save Customer Test"
-        command: mvn -f .autograde/pom.xml -Dtest=CustomerRepositoryTest#testSaveCustomer test
+        command: mvn  -Dtest=CustomerRepositoryTest#testSaveCustomer test
         timeout: 10
         max-score: 10
       
@@ -46,7 +46,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Customer by Name Test"
-        command: mvn -f .autograde/pom.xml -Dtest=CustomerRepositoryTest#testFindByName test
+        command: mvn  -Dtest=CustomerRepositoryTest#testFindByName test
         timeout: 10
         max-score: 10
     
@@ -55,7 +55,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Customer by Email Test"
-        command: mvn -f .autograde/pom.xml -Dtest=CustomerRepositoryTest#testFindByEmail test
+        command: mvn  -Dtest=CustomerRepositoryTest#testFindByEmail test
         timeout: 10
         max-score: 10
     
@@ -64,7 +64,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Save Order Test"
-        command: mvn -f .autograde/pom.xml -Dtest=OrderRepositoryTest#testSaveOrder test
+        command: mvn -Dtest=OrderRepositoryTest#testSaveOrder test
         timeout: 10
         max-score: 10
     
@@ -73,7 +73,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Orders by Status Test"
-        command: mvn -f .autograde/pom.xml -Dtest=OrderRepositoryTest#testFindByStatus test
+        command: mvn  -Dtest=OrderRepositoryTest#testFindByStatus test
         timeout: 10
         max-score: 10
     
@@ -82,7 +82,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Orders by Date Range Test"
-        command: mvn -f .autograde/pom.xml -Dtest=OrderRepositoryTest#testFindByOrderDateBetween test
+        command: mvn -Dtest=OrderRepositoryTest#testFindByOrderDateBetween test
         timeout: 10
         max-score: 10
     
@@ -91,7 +91,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Save Product Test"
-        command: mvn -f .autograde/pom.xml -Dtest=ProductRepositoryTest#testSaveProduct test
+        command: mvn  -Dtest=ProductRepositoryTest#testSaveProduct test
         timeout: 10
         max-score: 10
     
@@ -100,7 +100,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Product by Name Test"
-        command: mvn -f .autograde/pom.xml -Dtest=ProductRepositoryTest#testFindByName test
+        command: mvn -Dtest=ProductRepositoryTest#testFindByName test
         timeout: 10
         max-score: 10
     
@@ -109,7 +109,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Products by Price Less Than Test"
-        command: mvn -f .autograde/pom.xml -Dtest=ProductRepositoryTest#testFindByPriceLessThan test
+        command: mvn  -Dtest=ProductRepositoryTest#testFindByPriceLessThan test
         timeout: 10
         max-score: 10
       
