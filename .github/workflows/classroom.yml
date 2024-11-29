@@ -130,15 +130,5 @@ jobs:
         FIND_PRODUCTS_BY_PRICE_LESS_THAN_RESULTS: "${{steps.find-products-by-price-less-than.outputs.result}}"
         CHECKSTYLE_RESULTS: "${{steps.checkstyle.outputs.result}}"
       with:
-        runners: |-
-          checkstyle,
-          savecustomertest,
-          findcustomerbyname,
-          findcustomerbyemail,
-          saveordertest,
-          findordersbystatus,
-          findordersbydaterange,
-          saveproducttest,
-          findproductbyname,
-          findproductsbypricelessthan
+        runners:  checkstyle,savecustomertest,findcustomerbyname,findcustomerbyemail,saveordertest,findordersbystatus,findordersbydaterange,saveproducttest,findproductbyname,findproductsbypricelessthan
           
