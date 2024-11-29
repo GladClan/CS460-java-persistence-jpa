@@ -119,15 +119,15 @@ jobs:
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        SAVE_CUSTOMER_TEST_RESULTS: "${{steps.savecustomertest.outputs.result}}"
-        FIND_CUSTOMER_BY_NAME_RESULTS: "${{steps.findcustomerbyname.outputs.result}}"
-        FIND_CUSTOMER_BY_EMAIL_RESULTS: "${{steps.findcustomerbyemail.outputs.result}}"
-        SAVE_ORDER_TEST_RESULTS: "${{steps.saveordertest.outputs.result}}"
-        FIND_ORDERS_BY_STATUS_RESULTS: "${{steps.findordersbystatus.outputs.result}}"
-        FIND_ORDERS_BY_DATE_RANGE_RESULTS: "${{steps.findordersbydaterange.outputs.result}}"
-        SAVE_PRODUCT_TEST_RESULTS: "${{steps.saveproducttest.outputs.result}}"
-        FIND_PRODUCT_BY_NAME_RESULTS: "${{steps.findproductbyname.outputs.result}}"
-        FIND_PRODUCTS_BY_PRICE_LESS_THAN_RESULTS: "${{steps.findproductsbypricelessthan.outputs.result}}"
+        SAVECUSTOMERTEST_RESULTS: "${{steps.savecustomertest.outputs.result}}"
+        FINDCUSTOMERBYNAME_RESULTS: "${{steps.findcustomerbyname.outputs.result}}"
+        FINDCUSTOMERBYEMAIL_RESULTS: "${{steps.findcustomerbyemail.outputs.result}}"
+        SAVEORDERTEST_RESULTS: "${{steps.saveordertest.outputs.result}}"
+        FINDORDERSBYSTATUS_RESULTS: "${{steps.findordersbystatus.outputs.result}}"
+        FINDORDERSBYDATERANGE_RESULTS: "${{steps.findordersbydaterange.outputs.result}}"
+        SAVEPRODUCTTEST_RESULTS: "${{steps.saveproducttest.outputs.result}}"
+        FINDPRODUCTBYNAME_RESULTS: "${{steps.findproductbyname.outputs.result}}"
+        FINDPRODUCTSBYPRICELESSTHAN_RESULTS: "${{steps.findproductsbypricelessthan.outputs.result}}"
         CHECKSTYLE_RESULTS: "${{steps.checkstyle.outputs.result}}"
       with:
         runners:  checkstyle,savecustomertest,findcustomerbyname,findcustomerbyemail,saveordertest,findordersbystatus,findordersbydaterange,saveproducttest,findproductbyname,findproductsbypricelessthan
