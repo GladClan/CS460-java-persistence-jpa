@@ -18,8 +18,6 @@ jobs:
         distribution: 'temurin'
         java-version: '21'
         cache: 'maven'
-    - name: Resolve Autograder Maven Dependencies
-      run: mvn -f .autograde/pom.xml dependency:go-offline dependency:resolve-plugins
     - name: Resolve Project Maven Dependencies
       run: test -f pom.xml && mvn dependency:go-offline dependency:resolve-plugins || true
 
