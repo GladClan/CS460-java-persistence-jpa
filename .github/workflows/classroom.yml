@@ -5,6 +5,10 @@ permissions:
   checks: write
   actions: read
   contents: read
+env:
+  MAVEN_ARGS: >-
+    -B
+    -ntp
 jobs:
   run-autograding-tests:
     runs-on: ubuntu-latest
@@ -31,7 +35,7 @@ jobs:
         max-score: 10
         
     - name: "Rubric: Save Customer Test"
-      id: save-customer-test
+      id: savecustomertest
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Save Customer Test"
@@ -40,7 +44,7 @@ jobs:
         max-score: 10
       
     - name: "Rubric: Find Customer by Name Test"
-      id: find-customer-by-name
+      id: findcustomerbyname
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Customer by Name Test"
@@ -49,7 +53,7 @@ jobs:
         max-score: 10
     
     - name: "Rubric: Find Customer by Email Test"
-      id: find-customer-by-email
+      id: findcustomerbyemail
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Customer by Email Test"
@@ -58,16 +62,16 @@ jobs:
         max-score: 10
     
     - name: "Rubric: Save Order Test"
-      id: save-order-test
+      id: saveordertest
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Save Order Test"
-        command: mvn  -Dtest=OrderRepositoryTest#testSaveOrder test
+        command: mvn -Dtest=OrderRepositoryTest#testSaveOrder test
         timeout: 10
         max-score: 10
     
     - name: "Rubric: Find Orders by Status Test"
-      id: find-orders-by-status
+      id: findordersbystatus
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Orders by Status Test"
@@ -76,16 +80,16 @@ jobs:
         max-score: 10
     
     - name: "Rubric: Find Orders by Date Range Test"
-      id: find-orders-by-date-range
+      id: findordersbydaterange
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Orders by Date Range Test"
-        command: mvn  -Dtest=OrderRepositoryTest#testFindByOrderDateBetween test
+        command: mvn -Dtest=OrderRepositoryTest#testFindByOrderDateBetween test
         timeout: 10
         max-score: 10
     
     - name: "Rubric: Save Product Test"
-      id: save-product-test
+      id: saveproducttest
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Save Product Test"
@@ -94,16 +98,16 @@ jobs:
         max-score: 10
     
     - name: "Rubric: Find Product by Name Test"
-      id: find-product-by-name
+      id: findproductbyname
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Product by Name Test"
-        command: mvn  -Dtest=ProductRepositoryTest#testFindByName test
+        command: mvn -Dtest=ProductRepositoryTest#testFindByName test
         timeout: 10
         max-score: 10
     
     - name: "Rubric: Find Products by Price Less Than Test"
-      id: find-products-by-price-less-than
+      id: findproductsbypricelessthan
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Products by Price Less Than Test"
@@ -115,17 +119,17 @@ jobs:
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        SAVE_CUSTOMER_TEST_RESULTS: "${{steps.save-customer-test.outputs.result}}"
-        FIND_CUSTOMER_BY_NAME_RESULTS: "${{steps.find-customer-by-name.outputs.result}}"
-        FIND_CUSTOMER_BY_EMAIL_RESULTS: "${{steps.find-customer-by-email.outputs.result}}"
-        SAVE_ORDER_TEST_RESULTS: "${{steps.save-order-test.outputs.result}}"
-        FIND_ORDERS_BY_STATUS_RESULTS: "${{steps.find-orders-by-status.outputs.result}}"
-        FIND_ORDERS_BY_DATE_RANGE_RESULTS: "${{steps.find-orders-by-date-range.outputs.result}}"
-        SAVE_PRODUCT_TEST_RESULTS: "${{steps.save-product-test.outputs.result}}"
-        FIND_PRODUCT_BY_NAME_RESULTS: "${{steps.find-product-by-name.outputs.result}}"
-        FIND_PRODUCTS_BY_PRICE_LESS_THAN_RESULTS: "${{steps.find-products-by-price-less-than.outputs.result}}"
+        SAVECUSTOMERTEST_RESULTS: "${{steps.savecustomertest.outputs.result}}"
+        FINDCUSTOMERBYNAME_RESULTS: "${{steps.findcustomerbyname.outputs.result}}"
+        FINDCUSTOMERBYEMAIL_RESULTS: "${{steps.findcustomerbyemail.outputs.result}}"
+        SAVEORDERTEST_RESULTS: "${{steps.saveordertest.outputs.result}}"
+        FINDORDERSBYSTATUS_RESULTS: "${{steps.findordersbystatus.outputs.result}}"
+        FINDORDERSBYDATERANGE_RESULTS: "${{steps.findordersbydaterange.outputs.result}}"
+        SAVEPRODUCTTEST_RESULTS: "${{steps.saveproducttest.outputs.result}}"
+        FINDPRODUCTBYNAME_RESULTS: "${{steps.findproductbyname.outputs.result}}"
+        FINDPRODUCTSBYPRICELESSTHAN_RESULTS: "${{steps.findproductsbypricelessthan.outputs.result}}"
         CHECKSTYLE_RESULTS: "${{steps.checkstyle.outputs.result}}"
       with:
-        runners: >-
-          checkstyle,save-customer-test,find-customer-by-name,find-customer-by-email,save-order-test,find-orders-by-status,find-orders-by-date-range,save-product-test,find-product-by-name,find-products-by-price-less-than
+        runners:  checkstyle,savecustomertest,findcustomerbyname,findcustomerbyemail,saveordertest,findordersbystatus,findordersbydaterange,saveproducttest,findproductbyname,findproductsbypricelessthan
+
           
