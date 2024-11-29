@@ -5,6 +5,10 @@ permissions:
   checks: write
   actions: read
   contents: read
+env:
+  MAVEN_OPTS: >-
+    -B
+    -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
 jobs:
   run-autograding-tests:
     runs-on: ubuntu-latest
@@ -31,7 +35,7 @@ jobs:
         max-score: 10
         
     - name: "Rubric: Save Customer Test"
-      id: save-customer-test
+      id: savecustomertest
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Save Customer Test"
@@ -40,7 +44,7 @@ jobs:
         max-score: 10
       
     - name: "Rubric: Find Customer by Name Test"
-      id: find-customer-by-name
+      id: findcustomerbyname
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Customer by Name Test"
@@ -49,7 +53,7 @@ jobs:
         max-score: 10
     
     - name: "Rubric: Find Customer by Email Test"
-      id: find-customer-by-email
+      id: findcustomerbyemail
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Customer by Email Test"
@@ -58,7 +62,7 @@ jobs:
         max-score: 10
     
     - name: "Rubric: Save Order Test"
-      id: save-order-test
+      id: saveordertest
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Save Order Test"
@@ -67,7 +71,7 @@ jobs:
         max-score: 10
     
     - name: "Rubric: Find Orders by Status Test"
-      id: find-orders-by-status
+      id: findordersbystatus
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Orders by Status Test"
@@ -76,7 +80,7 @@ jobs:
         max-score: 10
     
     - name: "Rubric: Find Orders by Date Range Test"
-      id: find-orders-by-date-range
+      id: findordersbydaterange
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Orders by Date Range Test"
@@ -85,7 +89,7 @@ jobs:
         max-score: 10
     
     - name: "Rubric: Save Product Test"
-      id: save-product-test
+      id: saveproducttest
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Save Product Test"
@@ -94,7 +98,7 @@ jobs:
         max-score: 10
     
     - name: "Rubric: Find Product by Name Test"
-      id: find-product-by-name
+      id: findproductbyname
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Product by Name Test"
@@ -103,7 +107,7 @@ jobs:
         max-score: 10
     
     - name: "Rubric: Find Products by Price Less Than Test"
-      id: find-products-by-price-less-than
+      id: findproductsbypricelessthan
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Find Products by Price Less Than Test"
@@ -128,13 +132,13 @@ jobs:
       with:
         runners: >-
           checkstyle,
-          save-customer-test,
-          find-customer-by-name,
-          find-customer-by-email,
-          save-order-test,
-          find-orders-by-status,
-          find-orders-by-date-range,
-          save-product-test,
-          find-product-by-name,
-          find-products-by-price-less-than
+          savecustomertest,
+          findcustomerbyname,
+          findcustomerbyemail,
+          saveordertest,
+          findordersbystatus,
+          findordersbydaterange,
+          saveproducttest,
+          findproductbyname,
+          findproductsbypricelessthan
           
