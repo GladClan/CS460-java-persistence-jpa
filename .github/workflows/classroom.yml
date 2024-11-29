@@ -30,7 +30,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Check coding standard"
-        command: mvn checkstyle:check
+        command: mvn -B -ntp checkstyle:check
         timeout: 10
         max-score: 10
         
@@ -39,7 +39,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: "Rubric: Save Customer Test"
-        command: mvn  -Dtest=CustomerRepositoryTest#testSaveCustomer test
+        command: mvn -B -ntp -Dtest=CustomerRepositoryTest#testSaveCustomer test
         timeout: 10
         max-score: 10
       
@@ -130,7 +130,7 @@ jobs:
         FIND_PRODUCTS_BY_PRICE_LESS_THAN_RESULTS: "${{steps.find-products-by-price-less-than.outputs.result}}"
         CHECKSTYLE_RESULTS: "${{steps.checkstyle.outputs.result}}"
       with:
-        runners: >-
+        runners: |-
           checkstyle,
           savecustomertest,
           findcustomerbyname,
